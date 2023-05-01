@@ -1,4 +1,4 @@
-package com.example.brainshopai;
+package com.shubhamslab.brainshopai;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

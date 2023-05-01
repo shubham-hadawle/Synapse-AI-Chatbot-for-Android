@@ -1,4 +1,4 @@
-package com.example.brainshopai;
+package com.shubhamslab.brainshopai;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.brainshopai;
+package com.shubhamslab.brainshopai;
 
 import android.view.LayoutInflater;
 import android.view.View;

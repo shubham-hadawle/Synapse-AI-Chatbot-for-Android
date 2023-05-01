@@ -7,11 +7,25 @@
     tools:context=".MainActivity"
     android:background="#0E0E0E">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recycler_view"
-        android:layout_above="@id/bottom_relative_layout"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/top_relative_layout"
+        android:layout_alignParentTop="true">
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/bannerAdView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:padding="5dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-1680148931180397/9951495065">
+        </com.google.android.gms.ads.AdView>
+
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/welcome_logo"
@@ -21,7 +35,6 @@
         android:layout_centerInParent="true"
         android:layout_marginBottom="10dp"
         android:src="@mipmap/application_launcher_icon" />
-
 
     <TextView
         android:id="@+id/welcome_text"
@@ -36,6 +49,13 @@
         android:text="Introducing Synapse - an AI ChatBot\nType in your Prompt."
         android:textColor="@color/white"
         android:textSize="18dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_relative_layout"
+        android:id="@+id/recycler_view"
+        android:layout_above="@id/bottom_relative_layout"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

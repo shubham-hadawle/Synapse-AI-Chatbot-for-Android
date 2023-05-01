@@ -13,7 +13,7 @@
         android:padding="10dp"
         android:layout_marginEnd="80dp"
         android:id="@+id/left_chat_view">
-        
+
         <ImageView
             android:layout_marginEnd="10dp"
             android:layout_width="25dp"
@@ -48,6 +48,7 @@
             android:id="@+id/right_chat_text_message"/>
 
         <ImageView
+            android:layout_marginEnd="0.25dp"
             android:layout_marginStart="10dp"
             android:id="@+id/user_icon"
             android:layout_width="25dp"

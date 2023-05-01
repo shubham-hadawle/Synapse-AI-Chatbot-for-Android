@@ -1,4 +1,4 @@
-package com.example.brainshopai;
+package com.shubhamslab.brainshopai;
 
 public class MessageModel {
 
