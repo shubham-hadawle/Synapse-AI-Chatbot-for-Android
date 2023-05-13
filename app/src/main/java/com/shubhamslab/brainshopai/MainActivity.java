@@ -23,6 +23,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
     MessageAdapter messageAdapter;
     Context context;
     ImageView welcomeLogo;
-
     AdView bannerAdView;
     InterstitialAd mInterstitialAd;
     long seconds = 50;
@@ -66,8 +66,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bannerAdView = findViewById(R.id.bannerAdView);
+        // Configuring Children Safe Banner Ads to adhere to Google Family Policies
+        RequestConfiguration requestConfiguration = new RequestConfiguration.Builder()
+                .setTagForChildDirectedTreatment(RequestConfiguration.TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE)
+                .setMaxAdContentRating(RequestConfiguration.MAX_AD_CONTENT_RATING_G)
+                .build();
+
+        MobileAds.setRequestConfiguration(requestConfiguration);
+
         AdRequest adRequest = new AdRequest.Builder().build();
+        bannerAdView = findViewById(R.id.bannerAdView);
         bannerAdView.loadAd(adRequest);
 
         bannerAdView.setAdListener(new AdListener() {
@@ -174,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<MessageModel> call, Throwable t) {
-                String errorMessage = "Failed to generate a Response due to " + t.getMessage() + "\n\nTry asking again OR check your Connection!";
+                String errorMessage = "Try asking again OR check your Internet Connection!" + "\n\nFailed to generate a Response due to " + t.getMessage();
                 addToChat(errorMessage, ChatsModel.SENT_BY_CHATBOT);
             }
         });

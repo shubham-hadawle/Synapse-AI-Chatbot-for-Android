@@ -8,9 +8,9 @@
     android:background="@color/black">
 
     <pl.droidsonroids.gif.GifImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/splash_screen_gif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/splash_screen"
         android:layout_centerInParent="true"/>
 
 </RelativeLayout>
